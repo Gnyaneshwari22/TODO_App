@@ -32,7 +32,7 @@ app.listen(PORT, () =>{
 //DB connextcion
 
 const dbConnect= require("./config/DataBase");
-const { createTodo } = require("./controller/createTodo");
+
 dbConnect();
 
 //default route creation
@@ -44,6 +44,7 @@ app.get("/",(req,res) => {
 
 app.get("/api/v1",(req,res) => {
     res.send(`<h1>This is GET request wala page bhai</h1>`);
+    console.log("get request done successfully");
 }
 )
 
