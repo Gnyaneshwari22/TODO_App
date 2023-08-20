@@ -20,7 +20,7 @@ const todoRoutes= require("./routes/todo");
 
 //mount the todo API route
 app.use("/api/v1",todoRoutes);
-app.use("/api/v1",todoRoutes);
+
 
 //start the server
 
