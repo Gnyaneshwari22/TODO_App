@@ -6,20 +6,19 @@ const Todo= require("../model/Todo");
 
 exports.deleteTodo = async(req,res) =>{
       try{
-            //extract title and discription from request body 
-            const {title,description}= req.body;
+            
+              const id= req.params.id;
+         
 
-            //create a new Todo object and insert in DB
-
-            const response =await Todo.deleteOne({title,description});
+             await Todo.findByIdAndDelete({_id:id});
 
             //send a json response with success flag
 
-            res.status(200).json(
+            res.json(
                 {
                     success:true,
-                    data:response,
-                    message:"Entry deleted Successfully"
+                    
+                    message:`Entry deleted Successfully ${id}`
                 }
             );
       }
@@ -37,3 +36,4 @@ exports.deleteTodo = async(req,res) =>{
       }
 
 }
+
